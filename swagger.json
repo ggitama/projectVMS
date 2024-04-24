@@ -1,0 +1,1642 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "VMSDEV",
+    "description" : "Sum API Documentation",
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "http://localhost:3000/"
+    } ],
+  "tags" : "",
+  "paths" : {
+    "/vmsdev/po/getPoAll": {
+      "get" : {
+        "description" : "Example post description",
+        "tags": ["Purchase Order"],
+        "parameters": [{
+          "$ref": "#/parameters/id"
+        }, {
+          "$ref": "#/parameters/supplier_name_local"
+        },{
+          "$ref": "#/parameters/supplier_code"
+        },{
+          "$ref": "#/parameters/store_code"
+        },{
+          "$ref": "#/parameters/business_unit_name"
+        },{
+          "$ref": "#/parameters/status"
+        },{
+          "$ref": "#/parameters/start_date"
+        },{
+          "$ref": "#/parameters/end_date"
+        }],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/po/viewbycdtdetail": {
+      "get": {
+        "tags": ["Purchase Order"],
+        "parameters": [{ "$ref": "#/parameters/purchase_order" }],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/po/viewbycdtinfo": {
+      "get": {
+        "tags": ["Purchase Order"],
+        "parameters": [{ "$ref": "#/parameters/id" }],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/ra/getRaAll": {
+      "get": {
+        "tags": ["Receiving Advice"],
+        "parameters": [
+          { "$ref": "#/parameters/purchase_order" },
+          { "$ref": "#/parameters/supplier_name" },
+          { "$ref": "#/parameters/store_code" },
+          { "$ref": "#/parameters/business_unit_name" },
+          { "$ref": "#/parameters/status" },
+          { "$ref": "#/parameters/start_date" },
+          { "$ref": "#/parameters/end_date" }
+        ],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/ra/viewbycdtinfo": {
+      "post" : {
+        "tags": ["Receiving Advice"],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded" : {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": "9233888"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/ra/viewbycdtdetail": {
+      "post" : {
+        "tags": ["Receiving Advice"],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded" : {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": "9233888"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/ra/actionRa": {
+      "post": {
+        "tags": ["Receiving Advice"],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "description": "ACCEPT / REJECT",
+                    "type": "string",
+                    "example": ""
+                  },
+                  "id": {
+                    "type": "integer",
+                    "example": "9233888"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/rar/getRarAll": {
+      "get": {
+        "tags": ["Receiving Advice Response"],
+        "parameters": [
+          { "$ref": "#/parameters/supplier_name" },
+          { "$ref": "#/parameters/store" },
+          { "$ref": "#/parameters/business_unit_name" },
+          { "$ref": "#/parameters/status" },
+          { "$ref": "#/parameters/receiving_advice_number" },
+          { "$ref": "#/parameters/purchase_order" },
+          { "$ref": "#/parameters/start_date" },
+          { "$ref": "#/parameters/end_date" }
+        ],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/rar/viewbycdtinfo": {
+      "post": {
+        "tags": ["Receiving Advice Response"],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded" : {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": "1000007"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/rar/viewbycdtdetail": {
+      "post": {
+        "tags": ["Receiving Advice Response"],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded" : {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": "1000007"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/rar/actionAcceptReject": {
+      "post": {
+        "tags": ["Receiving Advice Response"],
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "description": "ACCEPT / REJECT",
+                    "type": "string",
+                    "example": ""
+                  },
+                  "id": {
+                    "type": "integer",
+                    "example": "1000007"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/rar/actionRar": {
+      "post": {
+        "tags": ["Receiving Advice Response"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "description": "CANCEL / SEND",
+                    "type": "string",
+                    "example": ""
+                  },
+                  "id": {
+                    "type": "integer",
+                    "example": "1000007"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/rar/actionSave": {
+      "post": {
+        "tags": ["Receiving Advice Response"],
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "IS_ACCEPTED": {
+                    "type": "string",
+                    "example": "n"
+                  },
+                  "RECEIVED_QTY": {
+                    "type": "number",
+                    "example": "10"
+                  },
+                  "REMARKS": {
+                    "type": "string"
+                  },
+                  "ID": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/pfi/getPfiAll": {
+      "get": {
+        "tags": ["Proforma Invoice"],
+        "parameters": [
+          { "$ref": "#/parameters/purchase_order" },
+          { "$ref": "#/parameters/merchant" },
+          { "$ref": "#/parameters/store" },
+          { "$ref": "#/parameters/business_unit" },
+          { "$ref": "#/parameters/status" },
+          { "$ref": "#/parameters/start_date" },
+          { "$ref": "#/parameters/end_date" }
+        ],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/pfi/viewbycdtinfo": {
+      "post": {
+        "tags": ["Proforma Invoice"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/id"
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/pfi/viewbycdtdetail": {
+      "post": {
+        "tags": ["Proforma Invoice"],
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/id"
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/pfi/actionPfi": {
+      "post": {
+        "tags": ["Proforma Invoice"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "description": "ACCEPT / REJECT",
+                    "type": "string",
+                    "example": ""
+                  },
+                  "id": {
+                    "type": "integer",
+                    "example": "1000007"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/pfi/actionBack": {
+      "post": {
+        "tags": ["Proforma Invoice"],
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/id"
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/pfir/getPfirAll": {
+      "get": {
+        "tags": ["Proforma Invoice Response"],
+        "parameters": [
+          { "$ref": "#/parameters/purchase_order" },
+          { "$ref": "#/parameters/supplier_name" },
+          { "$ref": "#/parameters/status" },
+          { "$ref": "#/parameters/store_code" },
+          { "$ref": "#/parameters/business_unit" },
+          { "$ref": "#/parameters/start_date" },
+          { "$ref": "#/parameters/end_date" }
+
+        ],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/pfir/viewbycdtinfo": {
+      "post": {
+        "tags": ["Proforma Invoice Response"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/id"
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/pfir/viewbycdtdetail": {
+      "post": {
+        "tags": ["Proforma Invoice Response"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/id"
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/pfir/actionAcceptReject": {
+      "post": {
+        "tags": ["Proforma Invoice Response"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "description": "ACCEPT / REJECT",
+                    "type": "string",
+                    "example": ""
+                  },
+                  "id": {
+                    "type": "integer",
+                    "example": "1000007"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/pfir/actionPfir": {
+      "post": {
+        "tags": ["Proforma Invoice Response"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "description": "CANCEL / SEND",
+                    "type": "string",
+                    "example": ""
+                  },
+                  "id": {
+                    "type": "integer",
+                    "example": "1000007"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/pfir/actionSave": {
+      "post": {
+        "tags": ["Proforma Invoice Response"],
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "RAIID": {
+                    "type": "number",
+                    "example": "219178014"
+                  },
+                  "IS_ACCEPTED": {
+                    "type": "string",
+                    "example": "N"
+                  },
+                  "RECONCILED": {
+                    "type": "number",
+                    "example": "10000"
+                  },
+                  "REMARKS": {
+                    "type": "string",
+                    "example": ""
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/i/getInvoiceAll": {
+      "get": {
+        "tags": ["Invoice"],
+        "parameters": [
+          { "$ref": "#/parameters/purchase_order" },
+          { "$ref": "#/parameters/status" },
+          { "$ref": "#/parameters/business_unit_name" },
+          { "$ref": "#/parameters/store_code" },
+          { "$ref": "#/parameters/dept_code" },
+          { "$ref": "#/parameters/digital_invoice" },
+          { "$ref": "#/parameters/supplier_code" },
+          { "$ref": "#/parameters/start_date" },
+          { "$ref": "#/parameters/end_date" }
+
+        ],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/inv/invdetails": {
+      "post": {
+        "tags": ["Invoice"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/id"
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/inv/invdetailsitem": {
+      "post": {
+        "tags": ["Invoice"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/id"
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/i/actionSaveInfoSupp": {
+      "post": {
+        "tags": ["Invoice"],
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "SC_ID": {
+                    "type": "number",
+                    "description": "supplier detail number"
+                  },
+                  "KODE_POS": {
+                    "type": "string"
+                  },
+                  "KOTA": {
+                    "type": "string"
+                  },
+                  "NEGARA": {
+                    "type": "string"
+                  },
+                  "TELEPON": {
+                    "type": "number",
+                    "example": "10000"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/i/actionSaveDetailInv": {
+      "post": {
+        "tags": ["Invoice"],
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ID": {
+                    "type": "number",
+                    "description": "invoice id"
+                  },
+                  "NOMOR_SERI_PAJAK": {
+                    "type": "string"
+                  },
+                  "CONFIRM_N_SERI_PAJAK": {
+                    "type": "string"
+                  },
+                  "TANGGAL_FAKTUR_PAJAK": {
+                    "type": "DATE"
+                  },
+                  "NOMOR_INVOICE_SUPPLIER": {
+                    "type": "number"
+                  },
+                  "TANGGAL_INVOICE_SUPPLIER": {
+                    "type": "DATE"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/cp/getConsPfList" : {
+      "get" : {
+        "tags": ["Consignment PFI"],
+        "parameters": [
+          { "$ref": "#/parameters/merchant" },
+          { "$ref": "#/parameters/status" },
+          { "$ref": "#/parameters/toko" },
+          { "$ref": "#/parameters/business_unit" },
+          { "$ref": "#/parameters/cdt" },
+          { "$ref": "#/parameters/start_date" },
+          { "$ref": "#/parameters/end_date" }
+        ],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/cp/viewbycdtinfo": {
+      "post" : {
+        "description" : "Post",
+        "tags": ["Consignment PFI"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded" : {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "cdt": {
+                    "type": "string",
+                    "example": "CTRI16071310431355"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/cp/viewbycdtdetail": {
+      "post" : {
+        "description" : "Post",
+        "tags": ["Consignment PFI"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded" : {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "cdt": {
+                    "type": "string",
+                    "example": "CTRI16071310431355"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/ci/getInvoiceAll": {
+      "get": {
+        "tags": ["Consignment Invoice"],
+        "parameters": [
+          { "$ref": "#/parameters/purchase_order" },
+          { "$ref": "#/parameters/status" },
+          { "$ref": "#/parameters/business_unit_name" },
+          { "$ref": "#/parameters/store_code" },
+          { "$ref": "#/parameters/dept_code" },
+          { "$ref": "#/parameters/digital_invoice" },
+          { "$ref": "#/parameters/supplier_code" },
+          { "$ref": "#/parameters/start_date" },
+          { "$ref": "#/parameters/end_date" }
+
+        ],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/ci/consInvInfo": {
+      "post": {
+        "tags": ["Consignment Invoice"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/id"
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/ci/consInvDetail": {
+      "post": {
+        "tags": ["Consignment Invoice"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/id"
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/sa/getConsSalesAnalysisList": {
+      "get": {
+        "tags": ["Consignment Sales Analysis"],
+        "parameters": [
+          { "$ref": "#/parameters/site" },
+          { "$ref": "#/parameters/item" },
+          { "$ref": "#/parameters/supplier" },
+          { "$ref": "#/parameters/department" },
+          { "$ref": "#/parameters/start_date" },
+          { "$ref": "#/parameters/end_date" }
+        ],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/apl/getConsLitigasiList" : {
+      "get" : {
+        "description" : "Get Analisis Penjualan LIt",
+        "tags": ["Consignment Sales Litigation Analysis"],
+        "parameters": [{
+          "$ref": "#/parameters/toko"},
+          { "$ref": "#/parameters/department"},
+          { "$ref": "#/parameters/status"},
+          { "$ref": "#/parameters/submitted_date"},
+          { "$ref": "#/parameters/lit_no"},
+          { "$ref": "#/parameters/start_date"},
+          { "$ref": "#/parameters/end_date"}
+
+        ],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/apl/viewbycdtinfo": {
+      "post" : {
+        "description" : "Post",
+        "tags": ["Consignment Sales Litigation Analysis"],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded" : {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "cdt": {
+                    "type": "string",
+                    "example": "SAL16101211607981"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/apl/viewbycdtdetail": {
+      "post" : {
+        "description" : "Post",
+        "tags": ["Consignment Sales Litigation Analysis"],
+        "requestBody": {
+          "required": true,
+            "content": {
+              "application/x-www-form-urlencoded": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "cdt": {
+                      "type": "string",
+                      "example": "SAL16101211607981"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {},
+          "deprecated": false
+      }
+    },
+    "/vmsdev/nrc/getConsNotaReturList" : {
+      "get" : {
+        "description" : "Get Consignment Nota Retur",
+        "tags": ["Consignment Nota Retur"],
+        "parameters": [{
+          "$ref": "#/parameters/status"},
+          { "$ref": "#/parameters/supplier"},
+          { "$ref": "#/parameters/business_unit"},
+          { "$ref": "#/parameters/nomor_pfi"},
+          { "$ref": "#/parameters/start_date"},
+          { "$ref": "#/parameters/end_date"}
+          ],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+		"/vmsdev/nrc/getConsNotaReturDownload" : {
+      "get" : {
+        "tags": ["Consignment Nota Retur"],
+        "parameters": [{
+          "$ref": "#/parameters/id"
+        }],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/prd/getPrdList" : {
+      "get" : {
+        "description" : "Get Payment Reference Detai",
+        "tags": ["Payment Reference Detai"],
+        "parameters": [{
+              "$ref": "#/parameters/status"},
+              {"$ref": "#/parameters/supplier"},
+              {"$ref": "#/parameters/payment_refrensi"},
+              {"$ref": "#/parameters/start_date"},
+              {"$ref": "#/parameters/end_date"}
+            ],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/prd/viewbycdtinfo": {
+      "post" : {
+        "description" : "Post",
+        "tags": ["Payment Reference Detai"],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded" : {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": "626011031"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/prd/viewbycdtdetail": {
+      "post" : {
+        "description" : "Post",
+        "tags": ["Payment Reference Detai"],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded" : {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": "626011031"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/ef/getEFakturList" : {
+      "get" : {
+        "description" : "Get E-Faktur",
+        "tags": ["E-Faktur"],
+        "parameters": [
+          {"$ref": "#/parameters/status"},
+          {"$ref": "#/parameters/supplier"},
+          {"$ref": "#/parameters/nomor_seri_pajak"},
+          {"$ref": "#/parameters/business_unit"},
+          {"$ref": "#/parameters/start_date"},
+          {"$ref": "#/parameters/end_date"}
+        ],
+         "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/bpfr/getBpfrList" : {
+      "get" : {
+        "description" : "Get Bukti Potong Fee Rebate",
+        "tags": ["Bukti Potong Fee Rebate"],
+        "parameters": [
+          {"$ref": "#/parameters/status"},
+          {"$ref": "#/parameters/supplier"},
+          {"$ref": "#/parameters/nomor_invoice"},
+          {"$ref": "#/parameters/business_unit"},
+          {"$ref": "#/parameters/start_date"},
+          {"$ref": "#/parameters/end_date"}
+      ],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+		"/vmsdev/bpfr/getBpfrDownload" : {
+      "get" : {
+        "tags": ["Bukti Potong Fee Rebate"],
+        "parameters": [{
+          "$ref": "#/parameters/id"
+        }],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/bpfr/getUnggahBpfrList" : {
+      "get" : {
+        "description" : "Get Unggah Bukti Potong Fee Rebate",
+        "tags": ["Bukti Potong Fee Rebate"],
+        "parameters": [{
+          "$ref": "#/parameters/namafile"
+        }],
+         "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/bpfr/uploadFile": {
+      "post" : {
+        "description" : "Upload File",
+        "tags": ["Bukti Potong Fee Rebate"],
+        "consumes": "multipart/form-data",
+        "requestBody": {
+          "content": {
+            "multipart/form-data" : {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "namafile": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/tk/getTrfKwitansiist" : {
+      "get" : {
+        "description" : "Get Transfer Kwuitansi",
+        "tags": ["Transfer Kwuitansi"],
+        "parameters": [{
+          "$ref": "#/parameters/nomor_kwitansi"},
+          {"$ref": "#/parameters/supplier_code"},
+          {"$ref": "#/parameters/start_date"},
+          {"$ref": "#/parameters/end_date"}
+      ],
+         "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/nr/getNrAll": {
+      "get": {
+        "tags": ["Nota Retur"],
+        "parameters": [
+          { "$ref": "#/parameters/status" },
+          { "$ref": "#/parameters/supplier_code" },
+          { "$ref": "#/parameters/business_unit" },
+          { "$ref": "#/parameters/start_date" },
+          { "$ref": "#/parameters/end_date" }
+        ],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+		"/vmsdev/nr/getNrDownload": {
+      "get": {
+        "tags": ["Nota Retur"],
+        "parameters": [
+          { "$ref": "#/parameters/id" }
+        ],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/cn/getCreditNoteList" : {
+      "get" : {
+        "tags": ["Nota Retur"],
+        "parameters": [
+          { "$ref": "#/parameters/nomor_seri_pajak" },
+          { "$ref": "#/parameters/supplier_code" },
+          { "$ref": "#/parameters/status" },
+          { "$ref": "#/parameters/business_unit" },
+          { "$ref": "#/parameters/start_date" },
+          { "$ref": "#/parameters/end_date" }
+        ],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/rr/getReturnReqList": {
+      "get": {
+        "tags": ["Retur Request"],
+        "parameters": [
+          { "$ref": "#/parameters/merchant" },
+          { "$ref": "#/parameters/status" },
+          { "$ref": "#/parameters/department" },
+          { "$ref": "#/parameters/toko" },
+          { "$ref": "#/parameters/business_unit" },
+          { "$ref": "#/parameters/return_request_number" },
+          { "$ref": "#/parameters/start_date" },
+          { "$ref": "#/parameters/end_date" }
+        ],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/rr/viewbycdtdetail": {
+      "post": {
+        "tags": ["Retur Request"],
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/id"
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/rr/viewbycdtinfo": {
+      "post": {
+        "tags": ["Retur Request"],
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/id"
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/rrn/getReturnReqNotifList": {
+      "get": {
+        "tags": ["Retur Request Notification"],
+        "parameters": [
+          { "$ref": "#/parameters/notification" },
+          { "$ref": "#/parameters/status" },
+          { "$ref": "#/parameters/supplier" },
+          { "$ref": "#/parameters/start_date" },
+          { "$ref": "#/parameters/end_date" },
+          { "$ref": "#/parameters/toko" },
+          { "$ref": "#/parameters/return_request_number" }
+        ],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/rrn/viewbycdtinfo": {
+      "post": {
+        "tags": ["Retur Request Notification"],
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/id"
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/rrr/getReturnReqResponseList": {
+      "get": {
+        "tags": ["Retur Request Response"],
+        "parameters": [
+          { "$ref": "#/parameters/merchant" },
+          { "$ref": "#/parameters/status" },
+          { "$ref": "#/parameters/department" },
+          { "$ref": "#/parameters/start_date" },
+          { "$ref": "#/parameters/end_date" },
+          { "$ref": "#/parameters/toko" },
+          { "$ref": "#/parameters/business_unit" },
+          { "$ref": "#/parameters/return_request_number" }
+        ],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/rrr/viewbycdtdetail": {
+      "post": {
+        "tags": ["Retur Request Response"],
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/id"
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/rrr/viewbycdtinfo": {
+      "post": {
+        "tags": ["Retur Request Response"],
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/id"
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/s/userSupplier": {
+      "post" : {
+        "description" : "Post",
+        "tags": ["Supplier"],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded" : {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "0893"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/search/getStore" : {
+      "get" : {
+        "description" : "Get Store",
+        "tags": ["Search"],
+        "parameters": [{
+          "name": "page", 
+          "in": "query",
+          "description": "A single page",
+          "schema": {
+            "$ref": "#/parameters/page"
+          }
+        },{
+          "name": "limit", 
+          "in": "query",
+          "description": "A single limit",
+            "schema": {
+              "$ref": "#/parameters/limit"
+            }
+        }],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/search/getSupplier" : {
+      "get" : {
+        "description" : "Get Supplier",
+        "tags": ["Search"],
+        "parameters": [],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/search/getDepartment" : {
+      "get" : {
+        "description" : "Get Departement",
+        "tags": ["Search"],
+        "parameters": [{
+          "name": "page", 
+          "in": "query",
+          "description": "A single page that we want to find",
+          "schema": {
+            "$ref": "#/parameters/page"
+          }
+        },{
+          "name": "limit", 
+          "in": "query",
+          "description": "A limit data that we want to find",
+          "schema": {
+            "$ref": "#/parameters/limit"
+          }
+        }],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/search/getBusiness" : {
+      "get" : {
+        "description" : "Get Business",
+        "tags": ["Search"],
+        "parameters": [],
+        "responses": {},
+        "deprecated": false
+      }
+    },
+    "/vmsdev/user/login": {
+      "post" : {
+        "description" : "Login",
+        "tags": ["Login"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json" : {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {},
+        "deprecated": false
+      }
+    }
+  },
+
+  "components": {
+    "schemas": {  
+      "Response": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "result": {
+            "type": "string"
+          }, 
+          "message": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "username" : {
+            "type": "string",
+            "description": "Username User",
+            "example" : "fitriani_ilyas"
+          },
+          "password" : {
+            "type": "string",
+            "description": "password User",
+            "example" : "FdaLjEiv"
+          }
+        }
+      },
+      "purchase_order": {
+        "type": "object",
+        "properties": {
+          "purchase_order": {
+            "type": "string",
+            "example": "TRI1601227918474"
+          }
+        }
+      },
+      "cdt": {
+        "type": "object",
+        "properties": {
+          "cdt": {
+            "type": "string",
+            "example": "TRI1509236625040"
+          }
+        }
+      },
+      "id": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "Id": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": "11"
+          },
+          "editor_name": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string",
+            "example": "ACCEPT"
+          }
+        }
+      }
+    }
+  },
+  "parameters": { 
+    "size": {
+      "name": "page",
+      "in": "query",
+      "required": true,
+      "type": "number"
+    }, 
+    "purchase_order": {
+      "name": "purchase_order",
+      "in": "query",
+      "description": "A single number id",
+      "type": "string",
+      "example": "TRI1603288865171"
+    },
+    "kode_supplier": {
+      "in": "query",
+      "type": "string",
+      "example": "0215"
+    },
+    "business_unit": {
+      "name": "business_unit",
+      "description": "A single business unit",
+      "in": "query",
+      "type": "string",
+      "example": "ID051"
+    }, 
+    "id": {
+      "name": "id", 
+      "in": "query",
+      "description": "A single number id",
+      "type": "string",
+      "example": "TRI1603288865171"
+    },   
+    "lit_no": {
+      "name": "lit_no", 
+      "in": "query",
+      "description": "A single number lit",
+      "type": "string",
+      "example": "SAL16101211607981"
+    },
+    "nomor_pfi": {
+      "name": "nomor_pfi", 
+      "in": "query",
+      "description": "A single number pfi",
+      "type": "string",
+      "example": "202005O60800030001"
+    },
+    "nomor_invoice": {
+      "name": "nomor_invoice",
+      "in": "query",
+      "type": "string",
+      "description": "A single invoice number",
+      "example": "ARIRF.1902.02580"
+    },
+    "status_new": {
+      "name": "status_new", 
+      "in": "query",
+      "description": "A single status",
+      "type": "string",
+      "example": "new"
+    },
+    "status": {
+      "name": "status", 
+      "in": "query",
+      "description": "A single status",
+      "type": "string",
+      "example": "AWAITING_ACTION"
+    },
+    "namafile": {
+      "name": "namafile",
+      "in": "query",
+      "type": "string",
+      "description": "A single filename",
+      "example": "manual"
+    },
+    "nomor_kwitansi": {
+      "name": "nomor_kwitansi",
+      "in": "query",
+      "type": "string",
+      "description": "A single receipt number",
+      "example": "ARIRF.0059.1911007"
+    },
+    "supplier_code": {
+      "name": "supplier_code",
+      "in": "query",
+      "type": "string",
+      "description": "A single supplier code",
+      "example": "0059"
+    },
+    "nomor_seri_pajak": {
+      "name": "nomor_seri_pajak",
+      "in": "query",
+      "type": "string",
+      "description": "A single nomor_seri_pajak",
+      "example": "0100301693020597"
+    },
+    "cdt": {
+      "name": "cdt",
+      "type": "string",
+      "in": "query",
+      "description": "A single cdt",
+      "example": "CTRI16071310431355"
+    },
+    "merchant": {
+      "name": "merchant",
+      "type": "string",
+      "in": "query",
+      "description": "A single merchant",
+      "example": "artha"
+    },
+    "payment_refrensi": {
+      "name":"payment_refrensi",
+      "type": "string",
+      "in": "query",
+      "description": "A single payment references",
+      "example": "0000021876"
+    },
+    "store_code": {
+      "name": "store_code",
+      "in": "query",
+       "description": "A single toko",
+      "example": "038"
+    },
+    "field": {
+      "name": "field",
+      "in": "query",
+      "example": "store_code"
+    },
+    "toko": {
+      "name": "toko",
+      "in": "query",
+      "required": false
+    },
+    "return_request_number": {
+      "name": "return_request_number",
+      "in": "query",
+      "example": "1234567890",
+      "required": false
+    },
+    "notification": {
+      "name": "notification",
+      "in": "query",
+      "example": "INCOMING_RQ",
+      "required": false
+    },
+    "supplier": {
+      "name": "supplier",
+      "in": "query",
+      "required": false
+    },
+    "supplier_name_local": {
+      "name": "supplier_name_local",
+      "type": "string",
+      "in": "query",
+      "description": "A single merchant",
+      "example": "artha"
+    },
+    "business_unit_name": {
+      "name": "business_unit_name",
+      "type": "string",
+      "in": "query",
+      "description": "A single business unit",
+      "example": "artha"
+    },
+    "start_date": {
+      "name": "start_date",
+      "type": "DATE",
+      "in": "query",
+      "description": "A single start date",
+      "example": "2017-02-28 00:00:00"
+    },
+    "end_date": {
+      "name": "end_date",
+      "type": "DATE",
+      "in": "query",
+      "description": "A single end date",
+      "example": "2017-02-28 00:00:00"
+    },
+    "supplier_name": {
+      "name": "supplier_name",
+      "type": "string",
+      "in": "query",
+      "description": "A single merchant",
+      "example": "artha"
+    },
+    "store": {
+      "name": "store",
+      "type": "string",
+      "in": "query",
+      "description": "A single toko",
+      "example": "038"
+    },
+    "receiving_advice_number": {
+      "name": "receiving_advice_number",
+      "type": "string",
+      "in": "query",
+      "description": "A single receiving advice number",
+      "example": "1115000068"
+    },
+    "dept_code": {
+      "name": "dept_code",
+      "type": "string",
+      "in": "query",
+      "description": "A single department code",
+      "example": "12"
+    },
+    "digital_invoice": {
+      "name": "digital_invoice",
+      "type": "string",
+      "in": "query",
+      "description": "A single digital invoice",
+      "example": ""
+    },
+    "site": {
+      "name": "site",
+      "type": "string",
+      "in": "query",
+      "description": "A single site"
+    },
+    "item": {
+      "name": "item",
+      "type": "string",
+      "in": "query",
+      "description": "A single item",
+      "example": "Galaxy"
+    },
+    "department": {
+      "name": "department",
+      "type": "string",
+      "in": "query",
+      "description": "A single department"
+    },
+    "submitted_date": {
+      "name": "submitted_date",
+      "type": "DATE",
+      "in": "query",
+      "description": "A single submit date",
+      "example": "2017-02-28 00:00:00"
+    }
+
+  }
+}
